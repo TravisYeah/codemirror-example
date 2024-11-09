@@ -1,7 +1,9 @@
 import { basicSetup, EditorView } from "codemirror";
-import { r } from "codemirror-lang-r";
+import { cql } from "codemirror-lang-cql";
+import { syntaxHighlighting } from "@codemirror/language";
+import { highlightStyle } from "./theme.mjs";
 
-let editor = new EditorView({
-  extensions: [basicSetup, r()],
+new EditorView({
+  extensions: [basicSetup, syntaxHighlighting(highlightStyle), cql()],
   parent: document.body,
 });
